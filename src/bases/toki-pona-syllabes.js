@@ -34,7 +34,7 @@ function hashToString(hash, precision) {
 // 	var digits = [];
 	var str = '';
 	var s;
-console.log(precision, precisionPerFinal, precisionPerLeading);
+// console.log(precision, precisionPerFinal, precisionPerLeading);
 
 // 	while(precision > precisionPerFinal) {
 	while(precision > precisionPerLeading) {
