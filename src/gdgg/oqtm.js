@@ -326,7 +326,7 @@ for (var i = 3; i < 60; i+=2) {
 	hashPrecisions .push(i);
 }
 
-console.log(hashPrecisions);
+// console.log(hashPrecisions);
 
 
 /// FIXME: Do some UMD, or some post-processing.

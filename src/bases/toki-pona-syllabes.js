@@ -64,7 +64,7 @@ for (var i = precisionPerFinal; i < 60; i+= precisionPerLeading) {
 
 
 // console.log(base);
-console.log(precisions);
+// console.log(precisions);
 
 if (!window) {
 	module.exports = {
