@@ -365,8 +365,26 @@ for (var i = precisionPerWord; i < 60; i+= precisionPerWord) {
 	precisions.push(i);
 }
 
+let regexp = new RegExp('([a-zA-Z]+)', 'g');
+
 export function stringToHash(str) {
-	
+// 	let matches = [];
+	let match;
+	let hash = 0;
+	let precision = 0;
+	let multiplier = 1;
+	while ((match = regexp.exec(str)) !== null) {
+		let position = words.indexOf(match[1]);
+		if (position === -1) {
+			return undefined;
+		}
+		hash += position * multiplier;
+		multiplier *= count;
+		precision += precisionPerWord;
+// 		matches.push(match[1]);
+	}
+// 	console.log(matches, hash);
+	return {hash: hash, precision: precision};
 }
 
 

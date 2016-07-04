@@ -97,7 +97,8 @@ export default function initMap(gdgg, bases, site, version) {
 				let text = '<div>' + hashStr + '</div>'
 					;
 					
-				window.location.hash = version + '/' + hashStr
+// 				window.location.hash = version + '/' + hashStr
+				window.location.hash = hashStr
 					
 					
 	// 			let text = '<div>Numeric hash: ' + numericHash + '</div>' +
@@ -133,6 +134,27 @@ export default function initMap(gdgg, bases, site, version) {
 		highlightArea(ev.latlng.lat, ev.latlng.lng, false);
 	});
 
+	// If the URL has a hash, use it to locate the first center
+	if (window.location.hash) {
+		let str = window.location.hash.replace('#','');
+		
+		let hashAndPrecision = bases.stringToHash(decodeURI(str));
+		
+		if (hashAndPrecision) {
+			let center = gdgg.numericHashToLatLng(hashAndPrecision.hash);
+			
+			precision = 0;
+			for (let i in validPrecisions) {
+				if (validPrecisions[i] < hashAndPrecision.precision) {
+					precision = Math.max(validPrecisions[i], precision);
+				}
+			}
+			
+			highlightArea(center.lat, center.lng, true);
+		}
+	}
+	
+	
 }
 
 
