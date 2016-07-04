@@ -46,21 +46,28 @@
 
 	var map = new L.Map('map', {fadeAnimation: false, zoomSnap: 0.25});
 
-	var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+// 	var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+// 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+// 		maxNativeZoom: 18,
+// 		maxZoom: 21
+// 	}).addTo(map);
+
+	var osm = L.tileLayer('http://{s}.osm.maptiles.xyz/{z}/{x}/{y}.png', {
+		attribution: 'Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		maxNativeZoom: 18,
 		maxZoom: 21
 	}).addTo(map);
-	
+
+
 	map.fitWorld();
-	
+
 // 	var precision = 3;
 	var precisionLimit = 45;
 	var clickPolygon, popup, hoverPolygon, hashCenterCircle;
 	var lastHash;
 	var persistentHash;
 
-	
+
 	// Find precisions given the GDGG ones and the bases' ones.
 	var validPrecisions = [];
 	for (var i in precisions) {
@@ -74,11 +81,11 @@
 			validPrecisions.push(max);
 		}
 	}
-	
+
 	var precision = validPrecisions[0];
-	
+
 // 	console.log(validPrecisions);
-	
+
 	map.on('zoomend', function(ev) {
 		// Find the smallest precision that fits within the entire bounds
 		var mapCenter = map.getCenter();
@@ -98,13 +105,13 @@
 
 	function highlightArea(lat, lng, pop) {
 		var hash = latLngToReadableHash(lat, lng, precision);
-		
+
 		var polygon = pop ? clickPolygon : hoverPolygon;
-		
+
 		if (pop || lastHash != hash) {
-			
+
 			var trig = readableHashToArea(hash);
-			
+
 			if (polygon) {
 				map.removeLayer(polygon);
 				map.removeLayer(hashCenterCircle);
@@ -118,33 +125,33 @@
 				color: pop ? 'black' : '#404040',
 				weight: pop ? 4 : 1
 			}).addTo(map);
-			
+
 			var numericHash = latLngToNumericHash(lat, lng, precision);
 // 			var newPrecision = validPrecisions[ validPrecisions.indexOf(precision) + 1 ] || precision;
-			
+
 			hashCenter = numericHashToLatLng(numericHash, precision);
 
 			hashCenterCircle = L.circleMarker(hashCenter, {radius: 3, fill: false, color: 'black', weight: 1}).addTo(map);
-			
+
 			if (pop) {
 				var hashStr = persistentHash = hashToString(numericHash, precision);
-				
+
 				var text = '<div>Numeric hash: ' + numericHash + '</div>' +
 					'<div>Readable hash: ' + hash + '</div>' +
 					'<div>Toki pona: ' + hashStr + '</div>' +
 					'<div>Precision: ' + precision + ' bits</div>'
 					;
-				
+
 				polygon.bindPopup(text, {
 					autoPan: false,
 	// 					closeButton: false
 				}).openPopup(hashCenter);
-					
-				
+
+
 				map.fitBounds(polygon.getBounds());
-				
+
 				clickPolygon = polygon;
-				
+
 
 			} else {
 				hoverPolygon = polygon;
@@ -153,7 +160,7 @@
 			lastHash = hash;
 		}
 	}
-	
+
 	map.on('click', function(ev) {
 		highlightArea(ev.latlng.lat, ev.latlng.lng, true);
 	});
