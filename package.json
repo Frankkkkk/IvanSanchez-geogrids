@@ -10,5 +10,9 @@
   "license": "WTFPL",
   "dependencies": {
     "leaflet": "^1.0.0-rc.1"
+  },
+  "devDependencies": {
+    "leaflet": "^1.0.0-rc.1",
+    "rollup": "^0.33.0"
   }
 }

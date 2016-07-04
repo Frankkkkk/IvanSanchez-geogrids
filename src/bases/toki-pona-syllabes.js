@@ -1,7 +1,4 @@
 
-
-
-
 var consonants = ['', 'j','k','l'/*,'m','n'*/,'p','s','t','w'];
 var leadingNasals = ['', ' ', 'm','n','m ','n '];
 var finalNasals = ['', 'm','n'];
@@ -30,7 +27,7 @@ var precisionPerFinal = Math.log2(finalCount);
 
 
 // 'precision' is the desired precision, in number of bits
-function hashToString(hash, precision) {
+export function hashToString(hash, precision) {
 // 	var digits = [];
 	var str = '';
 	var s;
@@ -62,14 +59,11 @@ for (var i = precisionPerFinal; i < 60; i+= precisionPerLeading) {
 	precisions.push(i);
 }
 
+export precisions;
 
-// console.log(base);
-// console.log(precisions);
-
-if (!window) {
-	module.exports = {
-		precisions: precisions,
-		hashToString: hashToString,
-// 		stringToHash: stringToHash
-	}
+export function stringToHash(str) {
+	
 }
+
+
+

@@ -290,63 +290,40 @@ function levelsToTriangle(octant, levels, normalizePoles) {
 
 ///// Exported functions
 
-function latLngToReadableHash(lat, lng, precision) {
+export function latLngToReadableHash(lat, lng, precision) {
 	var loc = latLngToPrecisionLocation(lat, lng, precision);
 	return locationToReadableHash(loc);
 }
 
-function latLngToNumericHash(lat, lng, precision) {
+export function latLngToNumericHash(lat, lng, precision) {
 	var loc = latLngToPrecisionLocation(lat, lng, precision);
 	return locationToNumericHash(loc);
 }
 
-function numericHashToLatLng(hash, precision) {
+export function numericHashToLatLng(hash, precision) {
 	var loc = numericHashToLocation(hash, precision);
 	return {lat: loc.lat, lng: loc.lng };
 }
 
-function readableHashToLatLng(hash) {
+export function readableHashToLatLng(hash) {
 	var loc = readableHashToLocation(hash);
 	return {lat: loc.lat, lng: loc.lng };
 }
 
-function numericHashToArea(hash, precision) {
+export function numericHashToArea(hash, precision) {
 	var loc = numericHashToLocation(hash);
 	return levelsToTriangle(loc.octant, loc.levels, true);
 }
 
-function readableHashToArea(hash) {
+export function readableHashToArea(hash) {
 	var loc = readableHashToLocation(hash);
 	return levelsToTriangle(loc.octant, loc.levels, true);
 }
 
 
-var hashPrecisions = [];
+export var hashPrecisions = [];
 for (var i = 3; i < 60; i+=2) {
 	hashPrecisions .push(i);
 }
 
-// console.log(hashPrecisions);
-
-
-/// FIXME: Do some UMD, or some post-processing.
-if (!window) {
-	module.exports = {
-// 		computeOctant             : computeOctant            ,
-// 		computeLevel              : computeLevel             ,
-// 		computeLatLng             : computeLatLng            ,
-// 		locationToReadableHash    : locationToReadableHash   ,
-// 		locationToNumericHash     : locationToNumericHash    ,
-// 		latLngToPrecisionLocation : latLngToPrecisionLocation,
-// 		levelsToLocation          : levelsToLocation         ,
-// 		levelsToTriangle          : levelsToTriangle
-		hashPrecisions       : hashPrecisions       ,
-		latLngToReadableHash : latLngToReadableHash ,
-		latLngToNumericHash  : latLngToNumericHash  ,
-		numericHashToLatLng  : numericHashToLatLng  ,
-		readableHashToLatLng : readableHashToLatLng ,
-		numericHashToArea    : numericHashToArea    ,
-		readableHashToArea   : readableHashToArea   
-	}
-}
-
+// export hashPrecisions;
