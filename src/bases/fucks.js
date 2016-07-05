@@ -1,3 +1,5 @@
+'use strict';
+
 var profanities = [
 	'anus',
 	'arse',
@@ -34,15 +36,14 @@ var profanities = [
 	'assshole',
 	'asssucker',
 	'asswad',
+	'asswart',
 	'asswipe',
-	'bampot',
 	'bastard',
 	'beaner',
 	'bitch',
 	'bitchass',
 	'bitchtits',
 	'blowjob',
-	'bollocks',
 	'boner',
 	'brotherfucker',
 	'bullshit',
@@ -102,7 +103,6 @@ var profanities = [
 	'cuntlicker',
 	'cuntrag',
 	'cuntslut',
-	'dago',
 	'damn',
 	'deggo',
 	'dick',
@@ -172,6 +172,7 @@ var profanities = [
 	'fuckwad',
 	'fuckwitt',
 	'fudgepacker',
+	'gangbang',
 	'gay',
 	'gayass',
 	'gaybob',
@@ -214,7 +215,6 @@ var profanities = [
 	'lezzie',
 	'mcfagget',
 	'mick',
-	'minge',
 	'motherfucker',
 	'muff',
 	'muffdiver',
@@ -226,6 +226,7 @@ var profanities = [
 	'niggers',
 	'niglet',
 	'nutsack',
+	'orgy',
 	'paki',
 	'panooch',
 	'pecker',
@@ -335,14 +336,306 @@ var drugs = [
 	'birdhead',
 	'blackdust',
 	'bluedevil',
+	'high',
+	'stoned',
 ];
 
-words = profanities.concat(drugs);
+let scottish = [
+	'bawbag',
+	'fud',
+	'glakit',
+	'scabby',
+	'whalluper',
+	'cludgie',
+	'doaber',
+	'hamshank',
+	'lavvie',
+	'skelpit',
+];
+
+let british = [
+	'bellend',
+	'bloody',
+	'blimey',
+	'clunge',
+	'crap',
+	'fanny',
+	'sideways',
+	'nonce',
+	'penguin',
+	'flaps',
+	'poof',
+	'slag',
+	'toff',
+	'randy',
+	'raunchy',
+	'spunk',
+	'wankstain',
+
+	// From http://septicscompanion.com/showcat.php?cat=insults
+	'bampot',
+	'barmy',
+	'berk',
+	'bint',
+	'blighter',
+	'blooming',
+	'bollocks',
+	'charva',
+	'chav',
+	'chauvinist',
+	'cheeky',
+	'cobblers',
+	'cockup',
+	'codger',
+	'dago',
+	'divvy',
+	'dodgy',
+	'dozy',
+	'duffer',
+	'eejit',
+	'git',
+	'gormless',
+	'grotty',
+	'manky',
+	'minger',
+	'munter',
+	'naff',
+	'nancy',
+	'numpty',
+	'nutter',
+	'pikey',
+	'pillock',
+	'plonker',
+	'poxy',
+	'prat',
+	'scrubber',
+	'skanky',
+	'trollop',
+	'tyke',
+	'wally',
+	'wazzack',
+
+	// From http://mentalfloss.com/article/61819/42-old-english-insults
+	'abydocomist',
+	'bedswerver',
+	'bespawler',
+	'bobolyne',
+	'cumberworld',
+	'dalcop',
+	'dewbeater',
+	'dorbel',
+	'dratepoke',
+	'driggledraggle',
+	'fopdoodle',
+	'fustylugs',
+	'fustilarian',
+	'scullion',
+	'rampallion',
+	'gnashgab',
+	'gobermouch',
+	'klazomaniac',
+	'leasing',
+	'loiter',
+	'lubberwort',
+	'wort',
+	'wart',
+	'muckspout',
+	'mumblecrust',
+	'quisby',
+	'raggabrash',
+	'rakefire',
+	'roiderbanks',
+	'scobberlotcher',
+	'skelpie',
+	'smellfeast',
+	'sorner',
+	'stampcrab',
+	'stymphalist',
+	'tallowcatch',
+	'triptaker',
+	'wandought',
+	'whifflewhaffle',
+	'yald',
+	'yaldson',
+	'zoilist',
+
+
+	// https://www.buzzfeed.com/rorylewarne/british-swearwords-defined?#
+	'cad',
+	'cack',
+	'gorblimey',
+	'knob',
+	'rotter',
+	'swine',
+	'tosser',
+	'tuss',
+
+	// From http://www.theregister.co.uk/2000/12/12/rudest_words_in_britain/
+	'spastic',
+	'sodding',
+];
+
+let animals = [
+	'worm',
+	'donkey',
+	'llama',
+	'snake',
+	'cockroach',
+	'bull',
+	'cow',
+	'harpy',	// OK, not an animal but a mythological creature
+	'troll',	// OK, not an animal but a mythological creature
+	'goblin',	// OK, not an animal but a mythological creature
+	'gnome',	// OK, not an animal but a mythological creature
+	'elf',	// OK, not an animal but a mythological creature
+	'monster',	// A bit of a stretch for the category, but appropiate
+	'dog',
+	'stud',
+	'pig',
+	'monkey',
+	'ape',
+	'chicken',
+	'rat',
+];
+
+// Just mildly rude.
+let mild = [
+	'good',
+	'bad',
+	'evil',
+	'lame',
+	'boring',
+	'fat',
+	'lard',
+	'dirt',
+	'poo',
+	'fart',
+	'suck',
+	'smelly',
+	'stinky',
+	'ugly',
+	'wild',
+	'lazy',
+	'christ',
+	'buffoon',
+	'clown',
+	'joker',
+	'dork',
+	'nerd',
+	'freak',
+	'idiot',
+	'imbecile',
+	'dumb',
+	'nailed',	// This might be a stretch
+	'slow',
+	'stupid',
+	'retard',
+	'cramp',
+	'moron',
+	'fool',
+	'smut',
+	'bottom',
+	'blows',
+	'member',
+	'hang',
+	'choke',
+	'banging',
+	'lick',
+	'crack',
+	'lying',
+	'slap',
+	'snot',
+	'mess',
+	'sob',
+	'brag',
+	'trash',
+	'litter',
+	'dump',
+	'fist',
+	'meat',
+	'hose',
+	'groin',
+	'hole',
+	'rubber',
+	'snob',
+	'stain',
+	'brat',
+	'bush',
+	'alcoholic',
+	'booze',
+	'bozo',
+	'creep',
+	'eunuch',
+	'stalker',
+	'loser',
+	'porn',
+	'sack',
+	'slime',
+	'horny',
+	'gland',
+	'condom',
+	'boogey',
+];
+
+let adverbs = [
+	'very',
+	'much',
+	'like',
+	'so',
+];
+
+let australian = [
+	'bugger',
+	'crikey',
+	'dingaling',
+	'donga',
+	'flaming',
+	'muppet',
+	'stuffed',
+	'gronk',
+	'slash',
+	'root',
+	'seppo',
+	'duff',
+	'bogan',
+	'redneck',
+	'dill',
+	'onions',
+	'fugly',
+	'jonas',
+	'tassie',
+	'mut',
+	'poofter',
+	'slagger',
+];
+
+let words = profanities.concat(drugs, scottish, british, animals, mild, adverbs, australian);
+
+// console.log('raw count:', words.length);
+
 
 // Having a power of two means that zooming in will reuse some digits
-// words = words.slice(0, 256);
-	
+// Sorting by length will get rid of the longer, more obscure terms
+words = words.sort( (a,b) => a.length - b.length ).slice(0, 512);
+
 var count = words.length;
+
+// console.log(words);
+//
+// // Debug code to catch duplicates
+// var sorted_arr = words.slice().sort(); // You can define the comparing function here.
+// // JS by default uses a crappy string compare.
+// // (we use slice to clone the array so the original array won't be modified)
+// var dupes = [];
+// for (var i = 0; i < words.length - 1; i++) {
+// 	if (sorted_arr[i + 1] == sorted_arr[i]) {
+// 		dupes.push(sorted_arr[i]);
+// 	}
+// }
+//
+// console.log('duplicates:', dupes);
+// console.log('count:', count);
+
 
 var precisionPerWord = Math.log2(count);
 
@@ -356,7 +649,7 @@ export function hashToString(hash, precision) {
 		hash = Math.trunc(hash/count);
 		precision -= precisionPerWord;
 	}
-	
+
 	return digits.join(' ');
 }
 
