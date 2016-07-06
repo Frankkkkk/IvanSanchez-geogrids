@@ -96,11 +96,11 @@ export default function initMap(gdgg, bases, site, version) {
 
 				let text = '<div>' + hashStr + '</div>'
 					;
-					
+
 // 				window.location.hash = version + '/' + hashStr
 				window.location.hash = hashStr
-					
-					
+
+
 	// 			let text = '<div>Numeric hash: ' + numericHash + '</div>' +
 	// 				'<div>Readable hash: ' + hash + '</div>' +
 	// 				'<div>Syllabes: ' + hashStr + '</div>' +
@@ -113,7 +113,7 @@ export default function initMap(gdgg, bases, site, version) {
 				}).openPopup(hashCenter);
 
 
-				map.fitBounds(polygon.getBounds());
+				map.fitBounds(polygon.getBounds().pad(0.2));
 
 				clickPolygon = polygon;
 
@@ -137,24 +137,97 @@ export default function initMap(gdgg, bases, site, version) {
 	// If the URL has a hash, use it to locate the first center
 	if (window.location.hash) {
 		let str = window.location.hash.replace('#','');
-		
+
 		let hashAndPrecision = bases.stringToHash(decodeURI(str));
-		
+
 		if (hashAndPrecision) {
 			let center = gdgg.numericHashToLatLng(hashAndPrecision.hash);
-			
+
 			precision = 0;
 			for (let i in validPrecisions) {
 				if (validPrecisions[i] < hashAndPrecision.precision) {
 					precision = Math.max(validPrecisions[i], precision);
 				}
 			}
-			
+
 			highlightArea(center.lat, center.lng, true);
 		}
 	}
-	
-	
+
+
+	// Init mapzen search
+	var searchControl = L.control.geocoder('search-4E9grQP', {
+		pointIcon: false,
+		polygonIcon: false,
+		markers: false,
+		panToPoint: false,
+// 		expanded: true,
+		position: 'topright',
+		placeholder: 'Enter shitty place name here'
+	}).addTo(map);
+
+	searchControl.on('results', (ev)=>{
+		console.log(ev);
+	});
+
+	searchControl.on('select', (ev)=>{
+		console.log(ev);
+
+		var temp = L.GeoJSON.geometryToLayer(ev.feature.geometry);
+		if ('getBounds' in temp) {
+			// lines, polys
+			map.fitBounds(temp.getBounds());
+		} else {
+			var zoom;
+			var lay = ev.feature.properties.layer;
+			if (lay === 'country') {
+				zoom = 3;
+			} else if (lay === 'macroregion') {
+				zoom = 4;
+			} else if (lay === 'region') {
+				zoom = 6;
+			} else if (lay === 'macrocounty') {
+				zoom = 8;
+			} else if (lay === 'county') {
+				zoom = 10;
+			} else if (lay === 'locality') {
+				zoom = 12;
+			} else if (lay === 'localadmin') {
+				zoom = 14;
+			} else if (lay === 'neighbourhood') {
+				zoom = 16;
+			}
+
+			map.setZoom(zoom);
+			var center = map.getCenter();
+			highlightArea(center.lat, center.lng, true);
+			searchControl.collapse();
+		}
+	});
+
+	var locationControl = L.control.locate({
+		position: 'topright',
+		setView: 'once',
+		drawCircle: false,
+		drawMarker: false
+	}).addTo(map);
+
+	// Overload the geocoding awesome-markers image with a UTF8 glyph
+	var locateSpan = document.querySelector('div.leaflet-control-locate span');
+	locateSpan.innerHTML = '⌖';
+	locateSpan.style.fontSize = '2em';
+
+	map.on('locationfound', function(ev){
+		var tempCircle = L.circle(ev.latlng, {radius: ev.accuracy}).addTo(map);
+		map.fitBounds(tempCircle.getBounds());
+		map.removeLayer(tempCircle);
+		locationControl.stop();
+		setTimeout(function(){
+			var center = map.getCenter();
+			highlightArea(center.lat, center.lng, true);
+		}, 500);
+	});
+
 }
 
 

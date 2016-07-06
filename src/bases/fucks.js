@@ -167,6 +167,7 @@ var profanities = [
 	'fuckstick',
 	'fucktard',
 	'fucktart',
+	'fucktastic',
 	'fucktoy',
 	'fuckup',
 	'fuckwad',
@@ -200,8 +201,8 @@ var profanities = [
 	'jackass',
 	'jagoff',
 	'jap',
+	'jerk',
 	'jerkoff',
-	'jerkass',
 	'jigaboo',
 	'jizz',
 	'junglebunny',
@@ -459,7 +460,6 @@ let british = [
 	'yaldson',
 	'zoilist',
 
-
 	// https://www.buzzfeed.com/rorylewarne/british-swearwords-defined?#
 	'cad',
 	'cack',
@@ -496,6 +496,7 @@ let animals = [
 	'ape',
 	'chicken',
 	'rat',
+	'hyena',
 ];
 
 // Just mildly rude.
