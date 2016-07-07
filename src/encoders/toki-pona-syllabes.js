@@ -47,22 +47,20 @@ export function hashToString(hash, precision) {
 	hash = Math.trunc(hash/finalCount);
 	precision -= precisionPerFinal;
 // 	}
-	
+
 // console.log('Unused precision: ', precision);
-	
+
 	return str;
 }
 
 
-var precisions = [];
+export var precisions = [];
 for (var i = precisionPerFinal; i < 60; i+= precisionPerLeading) {
 	precisions.push(i);
 }
 
-export precisions;
-
 export function stringToHash(str) {
-	
+	/// FIXME
 }
 
 

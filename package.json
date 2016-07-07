@@ -1,20 +1,21 @@
 {
   "name": "geogrids",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "Utilities for Global Discrete Geodetic Grids",
-  "main": "",
+  "main": "dist/geogrids-es5.js",
+  "jsnext:main": "dist/geogrids-es6.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "./build.sh"
   },
   "author": "Iván Sánchez Ortega <ivan@sanchezortega.es>",
   "license": "WTFPL",
-  "dependencies": {
-    "leaflet": "^1.0.0-rc.1"
-  },
   "devDependencies": {
+    "buble": "^0.12.4",
     "leaflet": "^1.0.0-rc.1",
     "leaflet-geocoder-mapzen": "^1.6.2",
     "leaflet.locatecontrol": "^0.52.0",
-    "rollup": "^0.33.0"
+    "rollup": "^0.33.0",
+    "webpack": "^1.13.1"
   }
 }
