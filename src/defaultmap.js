@@ -61,7 +61,12 @@ export default function initMap(gdgg, bases, site, version) {
 		}
 	});
 
-	function highlightArea(lat, lng, pop) {
+	function highlightArea(lat, lng, pop, forcedPrecision) {
+
+		if (typeof forcedPrecision === 'number') {
+			precision = forcedPrecision;
+		}
+
 		let hash = gdgg.latLngToReadableHash(lat, lng, precision);
 
 		let polygon = pop ? clickPolygon : hoverPolygon;
@@ -171,12 +176,23 @@ export default function initMap(gdgg, bases, site, version) {
 	});
 
 	searchControl.on('select', (ev)=>{
-		console.log(ev);
+		console.log(ev.feature);
 
 		var temp = L.GeoJSON.geometryToLayer(ev.feature.geometry);
 		if ('getBounds' in temp) {
 			// lines, polys
 			map.fitBounds(temp.getBounds());
+		} else if ('bounds' in ev.feature.properties) {
+
+			console.log('feature bounds',ev.feature.properties.bounds);
+
+			// lines, polys
+// 			precision = ev.feature.properties.precision;
+			map.fitBounds(ev.feature.properties.bounds);
+			var center = map.getCenter();
+			highlightArea(center.lat, center.lng, true, ev.feature.properties.precision);
+			searchControl.collapse();
+			console.log('map bounds',map.getBounds());
 		} else {
 			var zoom;
 			var lay = ev.feature.properties.layer;
@@ -204,6 +220,56 @@ export default function initMap(gdgg, bases, site, version) {
 			searchControl.collapse();
 		}
 	});
+
+	// Hijack calls to the Pelias search API and see if the string fits a GDGG hash
+	// Just an ugly way of decorating the L.Control.Geocoder methods in-place.
+	searchControl.callPelias = function(endpoint, params, type) {
+
+		var hashAndPrecision = bases.stringToHash(params.text.trim());
+
+// 		console.log('Hijacking a search API call,', params.text, hashAndPrecision);
+
+		if (hashAndPrecision) {
+			// Create a synthetic result and hijack it into the list
+			var bounds = L.polygon(gdgg.numericHashToArea( hashAndPrecision.hash, hashAndPrecision.precision )).getBounds();
+			var latlng = gdgg.numericHashToLatLng(hashAndPrecision.hash, hashAndPrecision.precision);
+			var result = { geometry: { coordinates: [latlng.lng, latlng.lat], type: 'Point'}, properties: {}};
+			result.properties.label = params.text;
+			result.properties.bounds = bounds;
+			result.properties.precision = hashAndPrecision.precision;
+
+// 			console.log(latlng, precision);
+
+			var lay;
+			if (precision < 5) {
+				lay = 'country';
+			} else if (precision < 10) {
+				lay = 'macroregion';
+			} else if (precision < 15) {
+				lay = 'region';
+			} else if (precision < 20) {
+				lay = 'macrocounty';
+			} else if (precision < 25) {
+				lay = 'county';
+			} else if (precision < 30) {
+				lay = 'locality';
+			} else if (precision < 35) {
+				lay = 'localadmin';
+			} else {
+				lay = 'neighbourhood';
+			}
+
+			result.properties.layer = lay;
+			this.showResults([result], params.text);
+		} else {
+			// Search as normal
+			L.Control.Geocoder.prototype.callPelias.call(this, endpoint, params, type);
+		}
+	}
+
+
+
+
 
 	var locationControl = L.control.locate({
 		position: 'topright',

@@ -667,10 +667,16 @@ export function stringToHash(str) {
 	let hash = 0;
 	let precision = 0;
 	let multiplier = 1;
+	regexp.exec('');	// Work around repeated queries
 	while ((match = regexp.exec(str)) !== null) {
 		let position = words.indexOf(match[1]);
 		if (position === -1) {
-			return undefined;
+			if (precision) {
+				// Return whatever we have up to this point
+				return {hash: hash, precision: precision};
+			} else {
+				return undefined;
+			}
 		}
 		hash += position * multiplier;
 		multiplier *= count;
