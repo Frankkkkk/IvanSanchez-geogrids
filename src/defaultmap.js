@@ -103,7 +103,7 @@ export default function initMap(gdgg, bases, site, version) {
 					;
 
 // 				window.location.hash = version + '/' + hashStr
-				window.location.hash = hashStr
+				window.location.hash = hashStr.replace(/ /g, '_');
 
 
 	// 			let text = '<div>Numeric hash: ' + numericHash + '</div>' +
@@ -146,7 +146,7 @@ export default function initMap(gdgg, bases, site, version) {
 		let hashAndPrecision = bases.stringToHash(decodeURI(str));
 
 		if (hashAndPrecision) {
-			let center = gdgg.numericHashToLatLng(hashAndPrecision.hash);
+			let center = gdgg.numericHashToLatLng(hashAndPrecision.hash, hashAndPrecision.precision);
 
 			precision = 0;
 			for (let i in validPrecisions) {
@@ -155,7 +155,7 @@ export default function initMap(gdgg, bases, site, version) {
 				}
 			}
 
-			highlightArea(center.lat, center.lng, true);
+			highlightArea(center.lat, center.lng, true, precision);
 		}
 	}
 

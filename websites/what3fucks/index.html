@@ -399,6 +399,19 @@ var number = geogrids.gdgg.oqtm.latLngToNumericHash(lat, lng, 27);
 var str = geogrids.encoders.fucks.hashToString(number, 27);
 console.log(str);</code></pre>
 
+
+						<p>And this is how the fuck to do the inverse:</p>
+
+						<pre><code>npm install geogrids</code></pre>
+						<pre><code>var geogrids = require('geogrids');
+var fuckedUpPlace = "super swine tallowcatch gayass bullshit";
+var hashAndPrecision = geogrids.encoders.fucks.stringToHash(fuckedUpPlace);
+var hash = hashAndPrecision.hash;
+var precision = hashAndPrecision.precision;
+var point = geogrids.gdgg.oqtm.numericHashToLatLng(hash, precision);
+console.log(point);
+var area =  geogrids.gdgg.oqtm.numericHashToArea(hash, precision);</code></pre>
+
 						<p>There's some other stuff in the JavaScript module, but if you have two brain cells you'll be able to search for them on your own. Now go FAP!</p>
 
 					</div>
