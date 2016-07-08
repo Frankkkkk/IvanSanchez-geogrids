@@ -190,7 +190,15 @@ export default function initMap(gdgg, bases, site, version) {
 // 			precision = ev.feature.properties.precision;
 			map.fitBounds(ev.feature.properties.bounds);
 			var center = map.getCenter();
-			highlightArea(center.lat, center.lng, true, ev.feature.properties.precision);
+
+			let precision = 0;
+			for (let i in validPrecisions) {
+				if (validPrecisions[i] < ev.feature.properties.precision) {
+					precision = Math.max(validPrecisions[i], precision);
+				}
+			}
+
+			highlightArea(center.lat, center.lng, true, precision);
 			searchControl.collapse();
 			console.log('map bounds',map.getBounds());
 		} else {

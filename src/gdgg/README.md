@@ -3,15 +3,15 @@ This directory holds different pluggable models for Global Discrete Geodetic Gri
 
 For the purposes of this software, a GDGG is a module that exports the following methods:
 
-- latLngToReadableHash(lat: Number, lng: Number, precision: Number): String
-- latLngToNumericHash(lat: Number, lng: Number, precision: Number, radix: Number): Number
-- readableHashToLatLng(hash: String): {lat, lng}
-- numericHashToLatLng(hash: Number): {lat, lng}
-- readableHashToArea(hash: Number): [{lat, lng}]
-- numericHashToArea(hash: Number): [{lat, lng}]
+- `latLngToReadableHash(lat: Number, lng: Number, precision: Number): String`
+- `latLngToNumericHash(lat: Number, lng: Number, precision: Number, radix: Number): Number`
+- `readableHashToLatLng(hash: String): {lat, lng} `
+- `numericHashToLatLng(hash: Number): {lat, lng}`
+- `readableHashToArea(hash: Number): [{lat, lng}]`
+- `numericHashToArea(hash: Number): [{lat, lng}]`
 
 And the following static property:
-- hashPrecisions: [Number]
+- `hashPrecisions: [Number]`
 
 The methods convert between a plain object with `lat` and `lng` properties, a number, a string, and back. e.g.:
 
