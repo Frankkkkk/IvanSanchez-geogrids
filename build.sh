@@ -24,4 +24,12 @@ cp node_modules/leaflet-geocoder-mapzen/dist/images                      website
 cp node_modules/leaflet-geocoder-mapzen/dist/leaflet-geocoder-mapzen.css websites/what3fucks/css/
 cp node_modules/leaflet-geocoder-mapzen/dist/leaflet-geocoder-mapzen.js  websites/what3fucks/js/
 
+cp node_modules/bootstrap/dist/css/bootstrap.min.css  websites/what3fucks/css/
+cp node_modules/bootstrap/dist/js/bootstrap.min.js    websites/what3fucks/js/
+
+cp node_modules/bootstrap/dist/css/bootstrap.min.css  websites/what3fucks/css/
+cp node_modules/bootstrap/dist/js/bootstrap.min.js    websites/what3fucks/js/
+
+cp node_modules/jquery/dist/jquery.min.js             websites/what3fucks/js/
+
 

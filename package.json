@@ -11,7 +11,10 @@
   "author": "Iván Sánchez Ortega <ivan@sanchezortega.es>",
   "license": "WTFPL",
   "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "browserify": "^13.0.1",
     "buble": "^0.12.4",
+    "jquery": "^2.2.4",
     "leaflet": "^1.0.0-rc.1",
     "leaflet-geocoder-mapzen": "^1.6.2",
     "leaflet.locatecontrol": "^0.52.0",

@@ -7,7 +7,7 @@ export default function initMap(gdgg, bases, site, version) {
 
 	// Do stuff on a leaflet map
 
-	let map = new L.Map('map', {fadeAnimation: false, zoomSnap: 0.25});
+	let map = new L.Map('map', {fadeAnimation: false});
 
 	let osm = L.tileLayer('http://{s}.osm.maptiles.xyz/{z}/{x}/{y}.png', {
 		attribution: 'Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',

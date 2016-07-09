@@ -1,55 +1,29 @@
 'use strict';
 
-var profanities = [
-	'anus',
-	'arse',
-	'arsehole',
-	'ass',
-// 	'ass-hat',
-// 	'ass-jabber',
-// 	'ass-pirate',
-	'assbag',
-// 	'assbandit',
-	'assbanger',
-	'assbite',
-// 	'assclown',
-// 	'asscock',
-	'asscracker',
-	'asses',
-// 	'assface',
-	'assfuck',
-// 	'assfucker',
-// 	'assgoblin',
-// 	'asshat',
-// 	'asshead',
+let fucks = [ 'anus',                                                                                                                                                                                                                                                                                                                                           
+	'arse',                                                                                                                                                                                                                                                                                                                                           
+	'arsehole',                                                                                                                                                                                                                                                                                                                                       
+	'ass',                                                                                                                                                                                                                                                                                                                                            
+	'assbag',                                                                                                                                                                                                                                                                                                                                         
+	'assbanger',                                                                                                                                                                                                                                                                                                                                      
+	'assbite',                                                                                                                                                                                                                                                                                                                                        
+	'asscracker',                                                                                                                                                                                                                                                                                                                                     
+	'asses',                                                                                                                                                                                                                                                                                                                                          
+	'assfuck',                                                                                                                                                                                                                                                                                                                                        
 	'asshole',
-// 	'asshopper',
-// 	'assjacker',
-// 	'asslick',
 	'asslicker',
-// 	'assmonkey',
-// 	'assmunch',
 	'assmuncher',
-// 	'assnigger',
-// 	'asspirate',
-// 	'assshit',
-// 	'assshole',
-// 	'asssucker',
-// 	'asswad',
 	'asswart',
 	'asswipe',
 	'bastard',
 	'beaner',
 	'bitch',
 	'bitching',
-// 	'bitchass',
-// 	'bitchtits',
 	'blowjob',
 	'boner',
 	'boytoy',
 	'brotherfucker',
 	'bullshit',
-// 	'bumblefuck',
 	'buttplug',
 	'buttfucker',
 	'cameltoe',
@@ -59,32 +33,16 @@ var profanities = [
 	'chink',
 	'chode',
 	'clit',
-// 	'clitface',
 	'clitfuck',
 	'clitoris',
 	'clusterfuck',
 	'cock',
-// 	'cockass',
-// 	'cockbite',
-// 	'cockburger',
 	'cockface',
 	'cockfucker',
 	'cockhead',
 	'cockjockey',
-// 	'cockknoker',
 	'cockmaster',
-// 	'cockmongler',
-// 	'cockmongruel',
-// 	'cockmonkey',
-// 	'cockmuncher',
-// 	'cocknose',
-// 	'cocknugget',
-// 	'cockshit',
-// 	'cocksmith',
-// 	'cocksmoker',
-// 	'cocksniffer',
 	'cocksucker',
-// 	'cockwaffle',
 	'coochie',
 	'coon',
 	'cooter',
@@ -153,11 +111,8 @@ var profanities = [
 	'fuckass',
 	'fuckbag',
 	'fuckboy',
-// 	'fuckbrain',
 	'fuckbutt',
-// 	'fuckbutter',
 	'fucker',
-// 	'fuckersucker',
 	'fuckface',
 	'fuckhead',
 	'fuckhole',
@@ -174,7 +129,6 @@ var profanities = [
 	'fuckup',
 	'fuckwad',
 	'fuckwitt',
-// 	'fudgepacker',
 	'gangbang',
 	'gay',
 	'gayass',
@@ -198,17 +152,14 @@ var profanities = [
 	'hell',
 	'ho',
 	'homo',
-// 	'homodumbshit',
 	'honkey',
 	'humping',
 	'jackass',
-// 	'jagoff',
 	'jap',
 	'jerk',
 	'jerkoff',
 	'jigaboo',
 	'jizz',
-// 	'junglebunny',
 	'kike',
 	'kraut',
 	'kyke',
@@ -222,7 +173,6 @@ var profanities = [
 	'motherfucker',
 	'muff',
 	'muffdiver',
-// 	'munging',
 	'negro',
 	'nigaboo',
 	'nigga',
@@ -233,11 +183,8 @@ var profanities = [
 	'paki',
 	'panooch',
 	'pecker',
-// 	'peckerhead',
 	'penis',
-// 	'penisbanger',
 	'penisfucker',
-// 	'penispuffer',
 	'piss',
 	'pissoff',
 	'pissflaps',
@@ -246,9 +193,6 @@ var profanities = [
 	'pollock',
 	'poon',
 	'poonani',
-// 	'poonany',
-// 	'poontang',
-// 	'porchmonkey',
 	'prick',
 	'punanny',
 	'punta',
@@ -257,8 +201,6 @@ var profanities = [
 	'puto',
 	'queef',
 	'queer',
-// 	'queerbait',
-// 	'queerhole',
 	'renob',
 	'rimjob',
 	'ruski',
@@ -269,30 +211,18 @@ var profanities = [
 	'shit',
 	'shitass',
 	'shitbag',
-// 	'shitbagger',
-// 	'shitbrains',
-// 	'shitbreath',
 	'shitcanned',
-// 	'shitcunt',
-// 	'shitdick',
-// 	'shitface',
 	'shitfaced',
-// 	'shithead',
 	'shithole',
 	'shithouse',
-// 	'shitspitter',
 	'shitstain',
 	'shitter',
-// 	'shittiest',
 	'shitting',
 	'shitty',
 	'shiz',
-// 	'shiznit',
 	'skank',
 	'skeet',
-// 	'skullfuck',
 	'slut',
-// 	'slutbag',
 	'smeg',
 	'snatch',
 	'spick',
@@ -322,34 +252,20 @@ var profanities = [
 	'whore',
 	'whorebag',
 	'whoreface',
-	'wop'];
-
-var drugs = [
-	'acid',
-	'african',
-	'amphets',
-	'angel',
-	'angeldust',
-	'badrock',
-	'bagman',
-	'bagging',
-	'baked',
-	'balling',
-	'bamba',
-	'banano',
-	'beamer',
-	'bedbugs',
-	'bennies',
-	'bickie',
-	'bingers',
-	'birdhead',
-	'blackdust',
-	'bluedevil',
-	'high',
-	'stoned',
-];
-
-let scottish = [
+	'wop',
+	'condom',
+	'porn',
+	'eunuch',
+	'rape',
+	'pedophile',
+	'sadist',
+	'masochist',
+	'coitus',
+	'cunnilingus',
+	'orgy',
+	'orgasm',
+	'masturbation',
+	'penetrate',
 	'bawbag',
 	'fud',
 	'glakit',
@@ -360,9 +276,6 @@ let scottish = [
 	'hamshank',
 	'lavvie',
 	'skelpit',
-];
-
-let british = [
 	'bellend',
 	'bloody',
 	'blimey',
@@ -380,8 +293,6 @@ let british = [
 	'raunchy',
 	'spunk',
 	'wankstain',
-
-	// From http://septicscompanion.com/showcat.php?cat=insults
 	'bampot',
 	'barmy',
 	'berk',
@@ -423,8 +334,6 @@ let british = [
 	'tyke',
 	'wally',
 	'wazzack',
-
-	// From http://mentalfloss.com/article/61819/42-old-english-insults
 	'abydocomist',
 	'bedswerver',
 	'bespawler',
@@ -467,8 +376,6 @@ let british = [
 	'yald',
 	'yaldson',
 	'zoilist',
-
-	// https://www.buzzfeed.com/rorylewarne/british-swearwords-defined?#
 	'cad',
 	'cack',
 	'gorblimey',
@@ -477,13 +384,8 @@ let british = [
 	'swine',
 	'tosser',
 	'tuss',
-
-	// From http://www.theregister.co.uk/2000/12/12/rudest_words_in_britain/
 	'spastic',
 	'sodding',
-];
-
-let animals = [
 	'worm',
 	'donkey',
 	'llama',
@@ -491,12 +393,12 @@ let animals = [
 	'cockroach',
 	'bull',
 	'cow',
-	'harpy',	// OK, not an animal but a mythological creature
-	'troll',	// OK, not an animal but a mythological creature
-	'goblin',	// OK, not an animal but a mythological creature
-	'gnome',	// OK, not an animal but a mythological creature
-	'elf',	// OK, not an animal but a mythological creature
-	'monster',	// A bit of a stretch for the category, but appropiate
+	'harpy',
+	'troll',
+	'goblin',
+	'gnome',
+	'elf',
+	'monster',
 	'dog',
 	'stud',
 	'pig',
@@ -505,10 +407,6 @@ let animals = [
 	'chicken',
 	'rat',
 	'hyena',
-];
-
-// Just mildly rude.
-let mild = [
 	'good',
 	'bad',
 	'evil',
@@ -535,7 +433,7 @@ let mild = [
 	'idiot',
 	'imbecile',
 	'dumb',
-	'nailed',	// This might be a stretch
+	'nailed',
 	'slow',
 	'stupid',
 	'retard',
@@ -587,33 +485,11 @@ let mild = [
 	'cocktail',
 	'drunk',
 	'dead',
-];
-
-let sexual = [
-	'condom',
-	'porn',
-	'eunuch',
-	'rape',
-	'pedophile',
-	'sadist',
-	'masochist',
-	'coitus',
-	'cunnilingus',
-	'orgy',
-	'orgasm',
-	'masturbation',
-	'penetrate',
-];
-
-let adverbs = [
 	'very',
 	'much',
 	'like',
 	'so',
 	'super',
-];
-
-let australian = [
 	'bugger',
 	'crikey',
 	'dingaling',
@@ -635,39 +511,18 @@ let australian = [
 	'tassie',
 	'mut',
 	'poofter',
-	'slagger',
-];
-
-let words = profanities.concat(/*drugs, */sexual, scottish, british, animals, mild, adverbs, australian);
-
-// console.log('raw count:', words.length);
-
+	'slagger' ];
 
 // Having a power of two means that zooming in will reuse some digits
 // Sorting by length will get rid of the longer, more obscure terms
-// words = words.sort( (a,b) => a.length - b.length ).slice(0, 512);
-words = words.slice(0, 512);
+// fucks = fucks.sort( (a,b) => a.length - b.length ).slice(0, 512);
+fucks = fucks.slice(0, 512);
 
-var count = words.length;
-
-// console.log(words);
-//
-// // Debug code to catch duplicates
-// var sorted_arr = words.slice().sort(); // You can define the comparing function here.
-// // JS by default uses a crappy string compare.
-// // (we use slice to clone the array so the original array won't be modified)
-// var dupes = [];
-// for (var i = 0; i < words.length - 1; i++) {
-// 	if (sorted_arr[i + 1] == sorted_arr[i]) {
-// 		dupes.push(sorted_arr[i]);
-// 	}
-// }
-//
-// console.log('duplicates:', dupes);
-// console.log('count:', count);
+var count = fucks.length;
 
 
-var precisionPerWord = Math.log2(count);
+
+var precisionPerFuck = Math.log2(count);
 
 export function hashToString(hash, precision) {
 	var digits = [];
@@ -675,16 +530,16 @@ export function hashToString(hash, precision) {
 
 	while(precision > 0) {
 		s = hash % count;
-		digits.push(words[s]);
+		digits.push(fucks[s]);
 		hash = Math.trunc(hash/count);
-		precision -= precisionPerWord;
+		precision -= precisionPerFuck;
 	}
 
 	return digits.join(' ');
 }
 
 export var precisions = [];
-for (var i = precisionPerWord; i < 60; i+= precisionPerWord) {
+for (var i = precisionPerFuck; i < 60; i+= precisionPerFuck) {
 	precisions.push(i);
 }
 
@@ -698,7 +553,7 @@ export function stringToHash(str) {
 	let multiplier = 1;
 	regexp.exec('');	// Work around repeated queries
 	while ((match = regexp.exec(str)) !== null) {
-		let position = words.indexOf(match[1]);
+		let position = fucks.indexOf(match[1]);
 		if (position === -1) {
 			if (precision) {
 				// Return whatever we have up to this point
@@ -709,7 +564,7 @@ export function stringToHash(str) {
 		}
 		hash += position * multiplier;
 		multiplier *= count;
-		precision += precisionPerWord;
+		precision += precisionPerFuck;
 // 		matches.push(match[1]);
 	}
 // 	console.log(matches, hash);
