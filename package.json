@@ -1,6 +1,6 @@
 {
   "name": "geogrids",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Utilities for Global Discrete Geodetic Grids",
   "main": "dist/geogrids-es5.js",
   "jsnext:main": "dist/geogrids-es6.js",
