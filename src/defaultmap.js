@@ -161,14 +161,16 @@ export default function initMap(gdgg, bases, site, version) {
 
 
 	// Init mapzen search
-	var searchControl = L.control.geocoder('search-4E9grQP', {
+	var searchControl = L.control.geocoder({
 		pointIcon: false,
 		polygonIcon: false,
 		markers: false,
 		panToPoint: false,
 // 		expanded: true,
 		position: 'topright',
-		placeholder: 'Enter shitty place name here'
+		placeholder: 'Enter shitty place name here',
+		attribution: null,
+		place: false
 	}).addTo(map);
 
 	searchControl.on('results', (ev)=>{
@@ -270,8 +272,8 @@ export default function initMap(gdgg, bases, site, version) {
 			result.properties.layer = lay;
 			this.showResults([result], params.text);
 		} else {
-			// Search as normal
-			L.Control.Geocoder.prototype.callPelias.call(this, endpoint, params, type);
+			// Skip search completely
+// 			L.Control.Geocoder.prototype.callPelias.call(this, endpoint, params, type);
 		}
 	}
 
