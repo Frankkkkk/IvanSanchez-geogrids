@@ -20,9 +20,8 @@ cp node_modules/leaflet/dist/leaflet.js websites/what3fucks/js/
 cp node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.css websites/what3fucks/css/
 cp node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.js  websites/what3fucks/js/
 
-cp node_modules/leaflet-geocoder-mapzen/dist/images                      websites/what3fucks/css/ -r
-cp node_modules/leaflet-geocoder-mapzen/dist/leaflet-geocoder-mapzen.css websites/what3fucks/css/
-cp node_modules/leaflet-geocoder-mapzen/dist/leaflet-geocoder-mapzen.js  websites/what3fucks/js/
+cp node_modules/leaflet.photon/leaflet.photon.css     websites/what3fucks/css/
+cp node_modules/leaflet.photon/leaflet.photon.js      websites/what3fucks/js/
 
 cp node_modules/bootstrap/dist/css/bootstrap.min.css  websites/what3fucks/css/
 cp node_modules/bootstrap/dist/js/bootstrap.min.js    websites/what3fucks/js/

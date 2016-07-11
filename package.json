@@ -16,8 +16,8 @@
     "buble": "^0.12.4",
     "jquery": "^2.2.4",
     "leaflet": "^1.0.0-rc.1",
-    "leaflet-geocoder-mapzen": "^1.6.2",
     "leaflet.locatecontrol": "^0.52.0",
+    "leaflet.photon": "^0.7.2",
     "rollup": "^0.33.0",
     "webpack": "^1.13.1"
   }

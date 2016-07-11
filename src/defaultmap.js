@@ -19,6 +19,12 @@ export default function initMap(gdgg, bases, site, version) {
 
 	map.fitWorld();
 
+	// Init photon search
+	var searchControl = new L.Control.Photon({
+		placeholder: 'Enter shitty place name here',
+		onSelected: L.Util.falseFn,
+		feedbackEmail: null
+	}).addTo(map);
 
 	let precisionLimit = 45;
 	let clickPolygon, popup, hoverPolygon, hashCenterCircle;
@@ -122,6 +128,7 @@ export default function initMap(gdgg, bases, site, version) {
 
 				clickPolygon = polygon;
 
+				searchControl.search.input.value = hashStr;
 
 			} else {
 				hoverPolygon = polygon;
@@ -159,126 +166,63 @@ export default function initMap(gdgg, bases, site, version) {
 		}
 	}
 
+	searchControl.on('selected', (ev)=>{
+// 		console.log(ev);
 
-	// Init mapzen search
-	var searchControl = L.control.geocoder({
-		pointIcon: false,
-		polygonIcon: false,
-		markers: false,
-		panToPoint: false,
-// 		expanded: true,
-		position: 'topright',
-		placeholder: 'Enter shitty place name here',
-		attribution: null,
-		place: false
-	}).addTo(map);
+		if ('choice' in ev && 'properties' in ev.choice && 'extent' in ev.choice.properties) {
+			var ex = ev.choice.properties.extent;
+			ev.choice.properties.bounds = L.latLngBounds( [ ex[1], ex[0] ], [ ex[3], ex[2] ] );
+		}
 
-	searchControl.on('results', (ev)=>{
-		console.log(ev);
-	});
+		if ('bounds' in ev.choice.properties) {
+// 			console.log('feature bounds',ev.choice.properties.bounds);
 
-	searchControl.on('select', (ev)=>{
-		console.log(ev.feature);
+			var center = ev.choice.properties.bounds.getCenter();
 
-		var temp = L.GeoJSON.geometryToLayer(ev.feature.geometry);
-		if ('getBounds' in temp) {
-			// lines, polys
-			map.fitBounds(temp.getBounds());
-		} else if ('bounds' in ev.feature.properties) {
-
-			console.log('feature bounds',ev.feature.properties.bounds);
-
-			// lines, polys
-// 			precision = ev.feature.properties.precision;
-			map.fitBounds(ev.feature.properties.bounds);
-			var center = map.getCenter();
-
-			let precision = 0;
-			for (let i in validPrecisions) {
-				if (validPrecisions[i] < ev.feature.properties.precision) {
-					precision = Math.max(validPrecisions[i], precision);
+			if ('precision' in ev.choice.properties) {
+				let precision = 0;
+				for (let i in validPrecisions) {
+					if (validPrecisions[i] < ev.choice.properties.precision) {
+						precision = Math.max(validPrecisions[i], precision);
+					}
 				}
+				highlightArea(center.lat, center.lng, true, precision);
+			} else {
+				map.fitBounds(ev.choice.properties.bounds);
+				highlightArea(center.lat, center.lng, true);
 			}
-
-			highlightArea(center.lat, center.lng, true, precision);
-			searchControl.collapse();
-			console.log('map bounds',map.getBounds());
-		} else {
-			var zoom;
-			var lay = ev.feature.properties.layer;
-			if (lay === 'country') {
-				zoom = 3;
-			} else if (lay === 'macroregion') {
-				zoom = 4;
-			} else if (lay === 'region') {
-				zoom = 6;
-			} else if (lay === 'macrocounty') {
-				zoom = 8;
-			} else if (lay === 'county') {
-				zoom = 10;
-			} else if (lay === 'locality') {
-				zoom = 12;
-			} else if (lay === 'localadmin') {
-				zoom = 14;
-			} else if (lay === 'neighbourhood') {
-				zoom = 16;
-			}
-
-			map.setZoom(zoom);
-			var center = map.getCenter();
-			highlightArea(center.lat, center.lng, true);
-			searchControl.collapse();
+// 			searchControl.collapse();
+// 			console.log('map bounds',map.getBounds());
 		}
 	});
 
-	// Hijack calls to the Pelias search API and see if the string fits a GDGG hash
-	// Just an ugly way of decorating the L.Control.Geocoder methods in-place.
-	searchControl.callPelias = function(endpoint, params, type) {
+	// Hijack calls to the Photon search API and see if the string fits a GDGG hash
+	// Just an ugly way of decorating the L.PhotonBaseSearch methods in-place.
+	searchControl.search._doSearch = function() {
+// 		console.log(this.CACHE);
 
-		var hashAndPrecision = bases.stringToHash(params.text.trim());
-
-// 		console.log('Hijacking a search API call,', params.text, hashAndPrecision);
+		var hashAndPrecision = bases.stringToHash(this.CACHE);
 
 		if (hashAndPrecision) {
 			// Create a synthetic result and hijack it into the list
 			var bounds = L.polygon(gdgg.numericHashToArea( hashAndPrecision.hash, hashAndPrecision.precision )).getBounds();
 			var latlng = gdgg.numericHashToLatLng(hashAndPrecision.hash, hashAndPrecision.precision);
 			var result = { geometry: { coordinates: [latlng.lng, latlng.lat], type: 'Point'}, properties: {}};
-			result.properties.label = params.text;
+// 			result.properties.label = this.CACHE;
+			result.properties.name = this.CACHE;
 			result.properties.bounds = bounds;
 			result.properties.precision = hashAndPrecision.precision;
 
-// 			console.log(latlng, precision);
+			return this.handleResults({
+				type: 'FeatureCollection',
+				features: [result]
+			});
 
-			var lay;
-			if (precision < 5) {
-				lay = 'country';
-			} else if (precision < 10) {
-				lay = 'macroregion';
-			} else if (precision < 15) {
-				lay = 'region';
-			} else if (precision < 20) {
-				lay = 'macrocounty';
-			} else if (precision < 25) {
-				lay = 'county';
-			} else if (precision < 30) {
-				lay = 'locality';
-			} else if (precision < 35) {
-				lay = 'localadmin';
-			} else {
-				lay = 'neighbourhood';
-			}
-
-			result.properties.layer = lay;
-			this.showResults([result], params.text);
 		} else {
-			// Skip search completely
-// 			L.Control.Geocoder.prototype.callPelias.call(this, endpoint, params, type);
+			// Search normally
+			L.PhotonBaseSearch.prototype._doSearch.call(this);
 		}
 	}
-
-
-
 
 
 	var locationControl = L.control.locate({
