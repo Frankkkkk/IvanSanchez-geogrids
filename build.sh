@@ -5,8 +5,11 @@ mkdir -p websites/what3fucks/js
 mkdir -p dist
 rm dist/*
 
-node_modules/.bin/rollup src/what3fucks.js > websites/what3fucks/js/what3fucks.js
-node_modules/.bin/rollup src/what3pokemon.js > websites/what3pokemon/js/what3pokemon.js
+node_modules/.bin/rollup src/what3fucks.js   | \
+	node_modules/.bin/buble --no modules > websites/what3fucks/js/what3fucks.js
+
+node_modules/.bin/rollup src/what3pokemon.js | \
+	node_modules/.bin/buble --no modules > websites/what3pokemon/js/what3pokemon.js
 
 node_modules/.bin/rollup src/api.js > dist/geogrids-es6.js
 node_modules/.bin/rollup src/api-es5.js > dist/geogrids-es5.tmp.js
