@@ -3,7 +3,7 @@
 // Default map stuff, assumes that 'gdgg' and 'bases' are already defined
 
 
-export default function initMap(gdgg, bases, site, version) {
+export default function initMap(gdgg, bases, site, strings) {
 
 	// Do stuff on a leaflet map
 
@@ -21,7 +21,7 @@ export default function initMap(gdgg, bases, site, version) {
 
 	// Init photon search
 	var searchControl = new L.Control.Photon({
-		placeholder: 'Enter shitty place name here',
+		placeholder: strings.geocoderPlaceholder,
 		onSelected: L.Util.falseFn,
 		feedbackEmail: null
 	}).addTo(map);
