@@ -11,7 +11,7 @@ node_modules/.bin/buble --no modules dist/geogrids-es5.tmp.js -o dist/geogrids-e
 rm dist/geogrids-es5.tmp.js
 node_modules/.bin/browserify dist/geogrids-es5.js -o dist/geogrids-es5-umd.js
 
-for i in what3fucks what3pokemon what3ikea; do
+for i in what3fucks what3pokemon what3ikea what3goshdarnits; do
 	echo $i;
 
 	node_modules/.bin/rollup src/$i.js   | \
