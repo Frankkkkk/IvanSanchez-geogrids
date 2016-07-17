@@ -52,6 +52,12 @@ img.coredarns {
 	padding: .5em;
 }
 
+img.parental-advisory {
+  width: 50px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 
 /* Based off https://fontlibrary.org/face/trueno */
 
