@@ -546,7 +546,7 @@ for (var i = precisionPerDarn; i < 60; i+= precisionPerDarn) {
 	precisions.push(i);
 }
 
-let regexp = new RegExp('([a-zA-Z]+)', 'g');
+let regexp = new RegExp('([a-zA-Z\-]+)', 'g');
 
 export function stringToHash(str) {
 // 	let matches = [];
