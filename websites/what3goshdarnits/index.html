@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>What☝3☝Goshdarnits</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/what3goshdarnits.css" rel="stylesheet">
+	<link href="css/leaflet.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/leaflet.photon.css">
+	<link rel="stylesheet" href="css/L.Control.Locate.min.css">
+</head>
+
+<body id="page-top">
+
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="#top">What<img src='img/what3goshdarnits-logo.svg' class='logo'>3<img src='img/what3goshdarnits-logo.svg' class='logo'>Goshdarnits</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="page-scroll" href="#give-a-darn">Vision</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#core-darns">Core darns</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#ffaq">FFAQ</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#crapi">CRAPI</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#lazybastards">Team</a>
+					</li>
+					<li>
+						<a class="page-scroll" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+<!--    <header>
+		<div id="map">
+
+		</div>
+	</header>-->
+	<a anchor='top'></a>
+	<section id="map-section">
+		<div id="map">
+
+		</div>
+	</section>
+
+	<section class="bg-primary" id="give-a-darn">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<div class="text-faded">Our vision:</div>
+					<h2 class="section-heading">We give a gosh darn.</h2>
+					<hr class="light">
+					<p class="text-faded">In what3goshdarnits, we give a flip so you can give more flips.</p>
+					<p class="text-faded">Some people don't give a fudge. But we like giving a fudge, and our goal is to enable <b>you</b> to give more of a fudge.</p>
+					<p class="text-faded">So instead of telling other people the name of a place, you can give them several gosh darns, which will pinpoint that place. Every
+          gosh darn you give will improve the accuracy by around 9 dadgum bits. In other words, mother-trucker: <b>the more gosh darns you give, the more precision you get!</b></p>
+					<p class="text-faded">When you need somebody to give a heck about somewhere, then ask them "What three gosh darns?". e.g.: "What three gosh darns are we going to?".</p>
+					<p class="text-faded">Start now, give a gosh darn today. Or better, give three gosh darns.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="core-darns">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Our Core darns</h2>
+					<hr class="primary">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box">
+						<img src='img/what3goshdarnits-logo.svg' class='coredarns'/>
+						<h3>darn addresses</h3>
+						<p class="text-muted">Darn these. Because they're boring as all get out.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box">
+						<img src='img/what3goshdarnits-logo.svg' class='coredarns'/>
+						<h3>darn squares</h3>
+						<p class="text-muted">Darn those. Triangles are <b>rad</b>, whippersnapper!</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box">
+						<img src='img/what3goshdarnits-logo.svg' class='coredarns'/>
+						<h3>darn politeness</h3>
+						<p class="text-muted">We should be sure as heck able to use whatever blasted words we freaking like.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box">
+						<img src='img/what3goshdarnits-logo.svg' class='coredarns'/>
+						<h3>darn closed source</h3>
+						<p class="text-muted">what3goshdarnits is licensed under the <a href='http://www.wtfpl.net/'>Do What The Frig You Want Public License</a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="ffaq" class="bg-dark">
+		<div class="container text-center">
+			<h2>FFAQ: Freakin' Frequently Asked Questions.</h2>
+			<p class="text-muted">Nobody asks us these questions, really. It's more like a "questions we expect those bums to ask themselves when discovering what3goshdarnits so we don't have to pay attention to them" section.</p>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq1">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer1" aria-expanded="true" aria-controls="ffaq-answer1">
+							Is this for gosh darn real?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq1">
+						<div class="panel-body">
+							<p>Heck yes.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq3">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer3" aria-expanded="true" aria-controls="ffaq-answer3">
+							I find this offensive.
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq3">
+						<div class="panel-body">
+							<p>That's not a question, dingus. If you don't want to use what3goshdarnits, skeedaddle off somewhere else. Also, fooey on you.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq12">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer12" aria-expanded="true" aria-controls="ffaq-answer12">
+							I think some underrepresented ethnic/racial/cultural group is offended by what3goshdarnits. Will you eliminate some terms?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq12">
+						<div class="panel-body">
+							<p>Heck no.</p>
+
+							<p>You don't have the doggone moral right to assert what a person from a different ethnic/racial/cultural/sexual group that you don't belong to feels like.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq13">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer13" aria-expanded="true" aria-controls="ffaq-answer13">
+							I actually belong to an underrepresented ethnic/racial/cultural group. Will you eliminate some terms I'm in fact deeply offended by?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq13">
+						<div class="panel-body">
+							<p>Heck no.</p>
+
+							<p>We don't handle requests like these, because it's so dadgum impossible to keep everybody happy.</p>
+
+							<p>Now, if you truly believe that <em>your</em> group is under/overrepresented, <strong>and</strong> you can come up with terms that offend a different
+              over/underrepresented group, <strong>and</strong> if that would make what3goshdarnits offend everybody more equally, then we actually would like to
+              hear your gosh darn suggestion! <a href='#contact'>Give us a shout</a>!</p>
+
+							<p>Better yet, grow a gosh darn do-it-yourself attitude, head to the code repo, fork the project, make the changes yourself, and submit a merge request.</p>
+
+							<p>The lazy rapscallions who made what3goshdarnits actually will show a lot more respect to you if you are willing to get your hands dirty (as opposed
+              to just flimflamming about problems).</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq2">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer2" aria-expanded="true" aria-controls="ffaq-answer2">
+							How the Sam Hill does it work?
+							</a>
+						</h4>
+					</div>
+
+					<div id="ffaq-answer2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq2">
+						<div class="panel-body">
+							<a href='http://knowyourmeme.com/memes/darning-magnets-how-do-they-work'><img src='img/ernest.jpg'/></a>
+							<p>That's a darn good question.</p>
+
+							<p>what3goshdarnits is based on a few well-frickin-known pieces.</p>
+
+							<p>The <b>first</b> thing is some malarkey called a "Global Discrete Geodesic Grid", which is boffin-speak for "a clever way of cutting the earth in
+              smaller pieces". what3goshdarnits uses one particular grid called "Octahedral Quaternary Triangular Mesh". We didn't know it was called that until we
+              found <a href='http://www.spatial-effects.com/SE-papers1.html'>some dadgum academic papers</a> that used that name like, 20 years ago. We would prefer
+              the more up-to-date term "dadgum triangles and crap, bro".</p>
+
+							<img src='img/zenithial-orthotriangular-projection.png'/></a>
+
+							<p>So you have to think that the earth is shaped like one of those funky dice with eight sides that nerds use in dungeons&amp;dragons, and then you cut
+              each gosh forsaken triangle into four triangles, and each of those lily-livered triangles you cut them again and again and again until it's small
+              enough. So each of the faces of the freaking die have a number, and each division of the triangles have four numbers, so any lump sniffer with half a brain can assign a different number to each different tiny little triangle.</p>
+							<hr>
+							<p>The <b>second</b> thing is gosh darning the digits and using words instead. So zero becomes "darn", one becomes "crud", two becomes "pee", three becomes
+              "weiner", four becomes "ninny", and three-thousand-and-forty-one becomes "weiner-darn-ninny-crud". We looked up <a
+              href='https://en.wikipedia.org/wiki/Mnemonic_major_system'>this crap in wikipedia</a> and turns out that some clever devils were using something like that in the middle ages.</p>
+
+							<table>
+							<tr><td style='text-align:right;'>0</td><td>→</td><td>darn</td></tr>
+							<tr><td style='text-align:right;'>1</td><td>→</td><td>crud</td></tr>
+							<tr><td style='text-align:right;'>2</td><td>→</td><td>pee</td></tr>
+							<tr><td style='text-align:right;'>…</td><td>…</td><td>…</td></tr>
+							<tr><td style='text-align:right;'>8</td><td>→</td><td>butt</td></tr>
+							<tr><td style='text-align:right;'>9</td><td>→</td><td>great scott</td></tr>
+							</table><hr>
+
+							<p>The <b>third</b> thing is using more than ten words. The math boffins use a thing called <a href='https://en.wikipedia.org/wiki/Radix'>radix</a>.
+              This crud is, like, basic stuff in mathematics so I'm not gonna explain this crap, for pete's sake just read the example from wikipedia:
+							<blockquote>
+							In the system with radix 13, for example, a string of digits such as 398 denotes the number 3 × 13<sup>2</sup> + 9 × 13<sup>1</sup> + 8 × 13<sup>0</sup>.
+							</blockquote>
+							</p>
+
+							<p>Using something like 512 allows to use a lot more stinkin words:</p>
+
+							<table>
+							<tr><td style='text-align:right;'>0</td><td>→</td><td>darn</td></tr>
+							<tr><td style='text-align:right;'>1</td><td>→</td><td>crud</td></tr>
+							<tr><td style='text-align:right;'>2</td><td>→</td><td>pee</td></tr>
+							<tr><td style='text-align:right;'>…</td><td>…</td><td>…</td></tr>
+							<tr><td style='text-align:right;'>…</td><td>…</td><td>…</td></tr>
+							<tr><td style='text-align:right;'>510</td><td>→</td><td>mother-of-pearl</td></tr>
+							<tr><td style='text-align:right;'>511</td><td>→</td><td>flimflammer</td></tr>
+							</table><hr>
+
+							<p>So if you give what3goshdarnits a point on the earth, it will calculate which tiny little triangle it belongs to, then it will calculate the number of that triangle, represent that number in radix 512 or whatever, and use a different word for every digit.</p>
+
+							<p>The cool crap is that if, heavens to Betsy, one of these splits the triangles into smaller ones, the numbers become greater, so you need more digits, so you need more words. That's why you need to give more darns when the triangles become smaller!</p>
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq4">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer4" aria-expanded="true" aria-controls="ffaq-answer4">
+							Can I use what3goshdarnits for commercial applications?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq4">
+						<div class="panel-body">
+							<p>what3goshdarnits uses the <a href='http://www.wtfpl.net/'>Do What The Frig You Want Public License</a>, which means we don't really give a heck
+              about what you do with this. I mean, we give a heck so you can give a heck, but we don't give a heck about what do you give your hecks for.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq5">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer5" aria-expanded="true" aria-controls="ffaq-answer5">
+							I swear I've seen this concept somewhere else.
+							</a>
+						</h5>
+					</div>
+					<div id="ffaq-answer5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq4">
+						<div class="panel-body">
+							<p>That's called a freaking déjà vu, and happens when <a href='http://matrix.wikia.com/wiki/D%C3%A9j%C3%A0_vu'>they change something in the matrix</a>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq6">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer6" aria-expanded="true" aria-controls="ffaq-answer6">
+							What technologies does what3goshdarnits use?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq6">
+						<div class="panel-body">
+							<p>First class dookie, yo.</p>
+
+							<p><a href='http://leafletjs.com/'>LeafletJS</a> for the web map, with an <a href='http://www.openstreetmap.org/copyright/'>OpenStreetMap base map</a> via <a href='https://maptiles.xyz/'>MapTiles CDN</a>, plus a bit of our own javascript magic.</p>
+
+							<p>We're a bunch of lazy rascals, so half of the webpage design is based on a <a href='http://startbootstrap.com/template-overviews/creative/'>bootstrap template</a>, with jQuery and all. The logo is a glyph from <a href='https://github.com/Ranks/emojione'>emoji-one</a> with the corporate colour scheme. Click on the links and RTFM if you give a darn about the differences between BSD and CC-by licenses.</p>
+
+							<p>what3goshdarnits doesn't need any of that server crap. This means that's it's easier to make what3goshdarnits work offline (but we're lazy rascals,
+              so we haven't worked on that yet), and even that clever dodo-heads can copy the code and give gosh darns without needing to use the
+              what3goshdarnits website.</p>
+
+							<p>We host the source code in <a href='http://gitlab.com/'>GitLab</a>. We don't want to use github since <a
+              href='http://www.businessinsider.com/tom-preston-werner-resigns-from-github-after-harassment-accusations-2014-4'>the allegations of sexual
+              misconduct</a>. canoodling is the bee's knees, but first make sure the person you're canoodling is cool with that, bro. Sexual harassment is a
+              dastardly move.</p>
+
+							<p>For a short time, we used <a href='https://mapzen.com/products/search/'>Mapzen search</a> to give a darn about old boring toponyms, but they decided
+              to be too prude for the bleeding edge in geocoding. We thought they were cool beans. We've switched to <a href='http://photon.komoot.de/'>Photon by
+              Komoot</a>, which has some heck raising good terms of use.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq7">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer7" aria-expanded="true" aria-controls="ffaq-answer7">
+							Your webpage is hosted in the EU, but I don't see the cookie policy alert. Why is that?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq7">
+						<div class="panel-body">
+							<p>Darn cookies.</p>
+
+							<p>what3goshdarnits doesn't need any dadgum cookies to "improve your experience" or "deliver the best content" or any of that bullcrap.</p>
+
+							<p>On the other hand, chocolate cookies are sure as heck awesome.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq8">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer8" aria-expanded="true" aria-controls="ffaq-answer8">
+							If you use triangles, why do I see squares when it's zoomed out?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq8">
+						<div class="panel-body">
+							<p>Because the <a href='https://en.wikipedia.org/wiki/Mercator_projection'>Mercator map projection</a> is a piece of crap. The north and south pole
+              cannot be represented, so when a triangle has a vertex on a doggone pole, we need to use a confounded artifact to display it.</p>
+
+							<p>All this business would be so much easier if the earth was flat as a day-old sarsparilla.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq9">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer9" aria-expanded="true" aria-controls="ffaq-answer9">
+							Why does what3goshdarnits position my town in the wrong place?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq9">
+						<div class="panel-body">
+							<p>It might be because you live in <a href='https://en.wikipedia.org/wiki/Ding_Dong,_Texas'>Ding Dong, Texas</a>, or <a
+              href='https://en.wikipedia.org/wiki/Scratchy_Bottom'>Scratchy Bottom, England</a> or <a href='https://en.wikipedia.org/wiki/Middelfart'>Middelfart,
+              Denmark</a> or some other <a href='http://www.i-r-genius.com/rudeplaces.html'>place with a wicked cool name</a>.</p>
+
+							<p>And then sure there's the prudes who say that some gosh darn words cannot be used for describing gosh darn names. For Pete's sake, go to <a
+              href='https://en.wikipedia.org/wiki/Hell,_Norway'>H. E. double-hockeysticks</a> already.</p>
+
+							<p>Listen, it's not our dang fault that your town chose a name that is going to be deprecated once what3goshdarnits takes over all the good for
+              nothing names. Some jackanapes will say that this is a problem with the <a href='https://en.wikipedia.org/wiki/Toponymy'>toponyms</a> (which is latin
+              for "name of the place") being confused with the goshdarnonyms (which is latin for "gosh darn this name"). Just give more gosh darns about where you live.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq10">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer10" aria-expanded="true" aria-controls="ffaq-answer10">
+							How should I abbreviate what3goshdarnits?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq10">
+						<div class="panel-body">
+							<p>Both "W3GD" and "WWWGD" are accepted.</p>
+
+							<p>In fact, if anybody is asking you "WTGD?", it means they want to know what3goshdarnits something is happening. Give a gosh darn for them!</p>
+
+							<p>We also like emoji crud. If you get high on emojis, you can abbreviate what3goshdarnits to "☝☝☝". That's our gosh darn logo, three times. Isn't that
+              gosh darn cool?</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="ffaq11">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ffaq-answer11" aria-expanded="true" aria-controls="ffaq-answer11">
+						    Where is the gosh darn repo?
+							</a>
+						</h4>
+					</div>
+					<div id="ffaq-answer11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ffaq11">
+						<div class="panel-body">
+							<p>You can find the gosh darn source code at <a href='https://gitlab.com/IvanSanchez/geogrids'>https://gitlab.com/IvanSanchez/geogrids</a>. We have
+              respect for mother-fathers who don't fart around and suggest code changes instead.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+	<section id="crapi" class="bg-light">
+		<div class="container text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading">CRAPI: Cheekily Ribald Application Programming Interface</h2>
+						<hr class="primary">
+						<p>Get ready to do some Cheekily Ribald Application Programming (or CRAP)</p>
+						<hr>
+					</div>
+
+					<div class="col-lg-12 text-left">
+
+						<p>We give a darn about ninnies who write computer code. We hope some of those ninnies are also CRAPers, and we want to help them to CRAP easier.</p>
+
+						<p>This is monday-to-friday easy with our CRAPI. We chose a JavaScript module CRAPI because that way it's easier to screw up your dependencies and your entire build.</p>
+
+						<p>Keep in mind that this is not a rootin'-tootin' teach-a-toddler-how-to-walk tutorial. We'll show you how to do it, then you're on your doggone own.</p>
+
+						<p>First, install the stinking javascript module. You do this by typing <code>npm install geogrids</code>.</p>
+
+						<p>Then, use the foolhardy javascript module in your code. You do this by writing <code>var geogrids = require('geogrids');</code>.</p>
+
+						<p>Tell your code to find a mother-father triangle for a point on the earth. Give the crap a latitude and longitude (in degrees) and a number of bytes of precision, like <code>var number = geogrids.gdgg.oqtm.latLngToNumericHash(12.86250, 48.06744, 27);</code>.</p>
+
+						<p>Now get that number and convert it to some goshdarnits (with the same precision), with <code>var str = geogrids.encoders.goshdarnits.hashToString(number, 27);</code>.</p>
+
+						<p>Maybe you're a lazy ne'er-do-well that likes to copy-paste code around, and we've given a heck about you:</p>
+
+						<pre><code>npm install geogrids</code></pre>
+						<pre><code>var geogrids = require('geogrids');
+var lat = 12.86250;
+var lng = 48.06744;
+var number = geogrids.gdgg.oqtm.latLngToNumericHash(lat, lng, 27);
+var str = geogrids.encoders.goshdarnits.hashToString(number, 27);
+console.log(str);</code></pre>
+
+
+						<p>And this is how the flip to do the inverse:</p>
+
+						<pre><code>npm install geogrids</code></pre>
+						<pre><code>var geogrids = require('geogrids');
+var goshDarnedUpPlace = "shucks golly-gee tarnation heck weenie";
+var hashAndPrecision = geogrids.encoders.goshdarnits.stringToHash(goshDarnedUpPlace);
+var hash = hashAndPrecision.hash;
+var precision = hashAndPrecision.precision;
+var point = geogrids.gdgg.oqtm.numericHashToLatLng(hash, precision);
+console.log(point);
+var area =  geogrids.gdgg.oqtm.numericHashToArea(hash, precision);</code></pre>
+
+						<p>There's some other stuff in the JavaScript module, but if you have two brain cells you'll be able to search for them on your own. Now go CRAP!</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section id="lazybastards" class="bg-dark">
+		<div class="container text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div>Meet our team of</div>
+						<h2 class="section-heading">Lazy Bums</h2>
+						<hr class="primary">
+						<p>Or did you think this piece of horse-pucky appeared out of thin air?</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="service-box">
+						<img src='img/pineapple.png' class='coredarns'/>
+						<h3>The Pineapple</h3>
+						<p class="text-muted">The fruit behind the idea for what3goshdarnits.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="service-box">
+						<img src='img/balls.jpg' class='coredarns'/>
+						<h3>Mr. Bocce Balls</h3>
+						<p class="text-muted">He had the balls to pull this off.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="service-box">
+						<img src='img/pussy.jpg' class='coredarns'/>
+						<h3>Ms. Moggy</h3>
+						<p class="text-muted">She's soft and fluffy and we like her GIFs.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="network" class="">
+		<div class="container text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div>Other sites of the what☝3☝goshdarnits</div>
+						<h2 class="section-heading">Network</h2>
+						<p><img src='img/parental-advisory.svg' class='parental-advisory'><a href='http://www.what3fucks.com'>What3F-bombs</a><img src='img/parental-advisory.svg' class='parental-advisory'></p>
+						<p><a href='http://www.what3pokemon.com'>What3Pokemon</a></p>
+						<p><a href='http://www.what3ikea.com'>What💺3💺Ikea</a></p>
+					</div>
+					<hr class="primary">
+					<div class="col-lg-12 text-center">
+						<div>Sites not affiliated with us:</div>
+						<p><a href='http://what2numbers.org'>What2Numbers</a></p>
+						<p><a href='http://what3emojis.com/'>What3Emojis</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<h2 class="section-heading">We sure as heck listen.</h2>
+					<hr class="primary">
+					<p>Not satisfied with the amount of darns that we give? Write us a dadgum email. Be advised that we might or might not give a darn about it.</p>
+				</div>
+<!--				<div class="col-lg-4 col-lg-offset-2 text-center">
+					<i class="fa fa-phone fa-3x sr-contact"></i>
+					<p>123-456-6789</p>
+				</div>-->
+				<div class="col-lg-4 text-center">
+					<i class="fa fa-envelope-o fa-3x sr-contact"></i>
+					<p><a href="mailto:darn@what3goshdarnits.com">darn@what3goshdarnits.com</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet.photon.js"></script>
+    <script src="js/L.Control.Locate.min.js"></script>
+    <script src="js/what3goshdarnits.js"></script>
+</body>
+
+</html>
