@@ -511,8 +511,7 @@ let fucks = [ 'anus',
 	'tassie',
 	'mut',
 	'poofter',
-	'slagger'
-	];
+	'slagger' ];
 
 // Having a power of two means that zooming in will reuse some digits
 // Sorting by length will get rid of the longer, more obscure terms
