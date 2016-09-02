@@ -6,7 +6,7 @@ import * as goshdarnits from './encoders/goshdarnits.js';
 import * as pokes from './encoders/pokes.js';
 import * as ikea  from './encoders/ikea.js';
 import * as tokiPonaSyllabes from './encoders/toki-pona-syllabes.js';
-import * as cheeses from './encoders/cheeses.js';
+import * as cheeses from './encoders/cheese.js';
 
 
 // Expose everything

@@ -17,6 +17,9 @@ for i in what3fucks what3pokemon what3ikea what3goshdarnits; do
 	node_modules/.bin/rollup src/$i.js   | \
 		node_modules/.bin/buble --no modules > websites/$i/js/$i.js
 
+	mkdir -p websites/$i/css/
+	mkdir -p websites/$i/js/
+
 	cp node_modules/leaflet/dist/leaflet.css websites/$i/css/
 	cp node_modules/leaflet/dist/leaflet.js websites/$i/js/
 
