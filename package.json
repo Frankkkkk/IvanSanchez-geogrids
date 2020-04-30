@@ -14,7 +14,7 @@
     "bootstrap": "^3.3.6",
     "browserify": "^13.0.1",
     "buble": "^0.12.4",
-    "jquery": "^2.2.4",
+    "jquery": "^3.5.0",
     "leaflet": "^1.0.0-rc.1",
     "leaflet.locatecontrol": "^0.52.0",
     "leaflet.photon": "^0.7.2",
